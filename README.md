@@ -2,8 +2,9 @@
 I made this plugin to help me read code in big files. I'm sharing it in case it would also benefit someone else. 
 
 # Installation (Godot 4.2)
-1. download and save the `Reading Aid` folder under `res://addons/`.
-2. Then turn on the plugin `Project Setting` => `Plugins` => check mark to turn it on
+1. close Godot Studio. Download the zip.
+2. Move `addons/Reading Aid` folder from zip to `res://addons`.
+3. Start Godot, turn on the plugin `Project Setting` => `Plugins` => check mark to turn it on
 
 # Features
 1. code background color
