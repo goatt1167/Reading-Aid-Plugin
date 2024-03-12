@@ -15,8 +15,11 @@ I made this plugin to help me read code in big files. I'm sharing it in case it 
 ## Code Background Color.
 To Aid your reading, the code background can be colored.
 Color can be added by adding `#n?#` at the beginning of a line.
-Format:
-- `# number color #`
+
+Format: `# number color #`
+
+![](https://github.com/goatt1167/ReadingAid-Plugin/blob/main/demo/color%20demo.gif)
+
 Examples:
 - `#3y#` => YELLOW color for the 3 lines of code below the comment.
 - `#4#` => without a color code, *default color* will be displayed
@@ -24,6 +27,8 @@ Examples:
 
 ## Comment Color Widget
 Convenience Widget by Holding down CTRL (Windows) or COMMAND (Mac).
+
+![](https://github.com/goatt1167/ReadingAid-Plugin/blob/main/demo/widget%20demo.gif)
 
 ## Fold / Unfold Any Custom Region In Addition To Region Tags
 This can be done through the widget
@@ -33,7 +38,7 @@ You don't have to put variables in one place at the top.
 You can instead put them near their related func and still view them in one place by this feature.
 You can also place TODO anywhere, too.
 
-Putting related variables and func near to each other helps my memory. Viewing variables all together also help my memory. Now I can have both.
+Putting related variables and func near to each other helps my memory. Viewing variables all together also helps my memory. Now I can have both.
 
 ## Modify Plugin Setting
 The setting is just a GDScript class. You can
