@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d13p2i333h2q4"]
+
+[ext_resource type="Script" path="res://addons/Reading Aid/scenes/AnimatedTextureRect.gd" id="1_dei6v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3bou"]
+
+[node name="AnimatedTextureRect" type="TextureRect"]
+script = ExtResource("1_dei6v")
+sprites = SubResource("SpriteFrames_c3bou")

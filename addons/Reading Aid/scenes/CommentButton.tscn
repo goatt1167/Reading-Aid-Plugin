@@ -1,0 +1,190 @@
+[gd_scene load_steps=19 format=3 uid="uid://dpij7qqpw3g1u"]
+
+[ext_resource type="Script" path="res://addons/Reading Aid/scenes/CommentButton.gd" id="1_8q3tu"]
+[ext_resource type="Texture2D" uid="uid://kmenwi3dese7" path="res://addons/Reading Aid/img/plus_sign.png" id="2_bup6g"]
+[ext_resource type="Texture2D" uid="uid://dagxhfs3s0y22" path="res://addons/Reading Aid/img/minus_sign.png" id="3_d2m31"]
+[ext_resource type="Script" path="res://addons/Reading Aid/scenes/color_rect.gd" id="4_4s6ob"]
+[ext_resource type="Texture2D" uid="uid://vqgk5ucylndx" path="res://addons/Reading Aid/img/book.png" id="4_r8ef8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ti5e"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.215686, 0.215686, 0.215686, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8pfw"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdrdf"]
+bg_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7no6"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxmfm"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ons56"]
+bg_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2164l"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt1c3"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obq1q"]
+bg_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gmq1"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbhg2"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nahm"]
+bg_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2asj6"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[node name="CommentButton" type="PanelContainer"]
+offset_right = 12.0
+offset_bottom = 12.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ti5e")
+script = ExtResource("1_8q3tu")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="hbox" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="plus_button" type="Button" parent="margin/hbox"]
+layout_mode = 2
+tooltip_text = "Grow Comment Background Color"
+theme_override_styles/normal = SubResource("StyleBoxFlat_l8pfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bdrdf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p7no6")
+
+[node name="margin" type="MarginContainer" parent="margin/hbox/plus_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="texture" type="TextureRect" parent="margin/hbox/plus_button/margin"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_bup6g")
+expand_mode = 1
+
+[node name="minus_button" type="Button" parent="margin/hbox"]
+layout_mode = 2
+tooltip_text = "Shrink Comment Background Color"
+theme_override_styles/normal = SubResource("StyleBoxFlat_xxmfm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ons56")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2164l")
+
+[node name="margin" type="MarginContainer" parent="margin/hbox/minus_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="texture" type="TextureRect" parent="margin/hbox/minus_button/margin"]
+layout_mode = 2
+texture = ExtResource("3_d2m31")
+expand_mode = 1
+
+[node name="color_button" type="Button" parent="margin/hbox"]
+layout_mode = 2
+tooltip_text = "Change Comment Background Color"
+theme_override_styles/normal = SubResource("StyleBoxFlat_wt1c3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_obq1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2gmq1")
+
+[node name="margin" type="MarginContainer" parent="margin/hbox/color_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="color_rect" type="ColorRect" parent="margin/hbox/color_button/margin"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("4_4s6ob")
+
+[node name="fold_button" type="Button" parent="margin/hbox"]
+layout_mode = 2
+tooltip_text = "Fold / Unfold Colored Region"
+theme_override_styles/normal = SubResource("StyleBoxFlat_dbhg2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3nahm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2asj6")
+
+[node name="margin" type="MarginContainer" parent="margin/hbox/fold_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="texture" type="TextureRect" parent="margin/hbox/fold_button/margin"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_r8ef8")
+expand_mode = 1
+
+[connection signal="button_down" from="margin/hbox/plus_button" to="." method="_on_plus_button_down"]
+[connection signal="button_down" from="margin/hbox/minus_button" to="." method="_on_minus_button_down"]
+[connection signal="button_down" from="margin/hbox/color_button" to="." method="_on_color_button_down"]
+[connection signal="button_down" from="margin/hbox/fold_button" to="." method="_on_fold_button_down"]

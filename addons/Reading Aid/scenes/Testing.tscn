@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5l011obwceaj"]
+
+[ext_resource type="Script" path="res://addons/Reading Aid/scenes/Testing.gd" id="1_pt0s8"]
+
+[node name="Testing" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NODE_A"
+script = ExtResource("1_pt0s8")
+
+[node name="Testing" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "NODE_B"
+script = ExtResource("1_pt0s8")
+
+[node name="Testing" type="Label" parent="Testing"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "NODE_C"
+script = ExtResource("1_pt0s8")

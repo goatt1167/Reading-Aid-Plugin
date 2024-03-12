@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckkig68ujosm6"]
+
+[ext_resource type="Script" path="res://addons/Reading Aid/scenes/EditorWindow.gd" id="1_n4nl5"]
+[ext_resource type="Theme" uid="uid://b7bk1fjj6b21q" path="res://addons/Reading Aid/Theme.tres" id="2_43pr2"]
+[ext_resource type="FontFile" uid="uid://nwbj1yvwv4xc" path="res://addons/Reading Aid/img/JetBrainsMono-MediumItalic.ttf" id="2_wjsfh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpcvf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0, 0, 0, 0.784314)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nnjs"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1voyg"]
+bg_color = Color(1, 1, 1, 0.0392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.188235, 0.74902, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0pms"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 16
+
+[node name="EditorWindow" type="Window"]
+transparent_bg = true
+title = "enums"
+initial_position = 1
+size = Vector2i(500, 500)
+visible = false
+borderless = true
+transparent = true
+script = ExtResource("1_n4nl5")
+
+[node name="panel" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jpcvf")
+
+[node name="vbox" type="VBoxContainer" parent="panel"]
+layout_mode = 2
+
+[node name="panel1" type="PanelContainer" parent="panel/vbox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nnjs")
+
+[node name="hbox" type="HBoxContainer" parent="panel/vbox/panel1"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="file_name_label" type="Label" parent="panel/vbox/panel1/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="margin" type="MarginContainer" parent="panel/vbox/panel1/hbox"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_right = 30
+
+[node name="hint" type="Label" parent="panel/vbox/panel1/hbox/margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.392157, 0.392157, 0.392157, 0.705882)
+theme_override_fonts/font = ExtResource("2_wjsfh")
+text = "RMB => Drag | TAB => Switch"
+vertical_alignment = 1
+
+[node name="tab" type="HBoxContainer" parent="panel/vbox/panel1/hbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.0
+
+[node name="var" type="Button" parent="panel/vbox/panel1/hbox/tab"]
+layout_mode = 2
+theme = ExtResource("2_43pr2")
+text = "  var  "
+
+[node name="todo" type="Button" parent="panel/vbox/panel1/hbox/tab"]
+layout_mode = 2
+theme = ExtResource("2_43pr2")
+text = "  TODO  "
+
+[node name="enum" type="Button" parent="panel/vbox/panel1/hbox/tab"]
+layout_mode = 2
+theme = ExtResource("2_43pr2")
+text = "  enum  "
+
+[node name="panel" type="PanelContainer" parent="panel/vbox/panel1/hbox/tab/enum"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1voyg")
+
+[node name="panel2" type="PanelContainer" parent="panel/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_r0pms")
+
+[node name="CodeEdit" type="CodeEdit" parent="panel/vbox/panel2"]
+layout_mode = 2
+theme = ExtResource("2_43pr2")
+
+[connection signal="pressed" from="panel/vbox/panel1/hbox/tab/var" to="." method="_display_tab" binds= [1]]
+[connection signal="pressed" from="panel/vbox/panel1/hbox/tab/todo" to="." method="_display_tab" binds= [2]]
+[connection signal="pressed" from="panel/vbox/panel1/hbox/tab/enum" to="." method="_display_tab" binds= [3]]

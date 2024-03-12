@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b7bk1fjj6b21q"]
+
+[ext_resource type="FontFile" uid="uid://cjwcx78tlrmst" path="res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf" id="1_axuig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aoqdd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.784314)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55ner"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.0980392, 0.0980392, 0.0980392, 0.784314)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrfyi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.0980392, 0.0980392, 0.0980392, 0.784314)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frvop"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0, 0, 0, 1)
+corner_detail = 5
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_axuig")
+Button/styles/hover = SubResource("StyleBoxFlat_aoqdd")
+Button/styles/normal = SubResource("StyleBoxFlat_55ner")
+Button/styles/pressed = SubResource("StyleBoxFlat_yrfyi")
+CodeEdit/colors/font_readonly_color = Color(0.87451, 0.87451, 0.87451, 1)
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_frvop")
