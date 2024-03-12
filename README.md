@@ -14,6 +14,7 @@ I made this plugin to help me read code in big files. I'm sharing it in case it 
 
 ## Code Background Color.
 To Aid your reading, the code background can be colored.
+
 Color can be added by adding `#n?#` at the beginning of a line.
 
 Format: `# number color #`
@@ -36,8 +37,11 @@ This can be done through the widget
 
 ## View Keywords In Isolation (CTRL/META + E => Hotkey)
 ![](https://github.com/goatt1167/ReadingAid-Plugin/blob/main/demo/popup%20window.png)
+
 You don't have to put variables in one place at the top.
+
 You can instead put them near their related func and still view them in one place by this feature.
+
 You can also place TODO anywhere, too.
 
 Putting related variables and func near to each other helps my memory. Viewing variables all together also helps my memory. Now I can have both.
