@@ -24,6 +24,7 @@ Examples:
 - `#3y#` => YELLOW color for the 3 lines of code below the comment.
 - `#4#` => without a color code, *default color* will be displayed
 (default color can be changed in settings.gd)
+- `g` = `GREEN`, `d` = `DARK`, `t` = `TEAL`, `i` = `INDIGO`, `r` = `RICD`, etc.
 
 ## Comment Color Widget
 Convenience Widget by Holding down CTRL (Windows) or COMMAND (Mac).
