@@ -23,7 +23,7 @@ Examples:
 (default color can be changed in settings.gd)
 
 ## Comment Color Widget
-Holding down CTRL (Windows) or COMMAND (Mac) to access the widget.
+Convenience Widget by Holding down CTRL (Windows) or COMMAND (Mac).
 
 ## Fold / Unfold Any Custom Region In Addition To Region Tags
 This can be done through the widget
