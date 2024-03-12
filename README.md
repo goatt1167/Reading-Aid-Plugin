@@ -34,7 +34,7 @@ Convenience Widget by Holding down CTRL (Windows) or COMMAND (Mac).
 ## Fold / Unfold Any Custom Region In Addition To Region Tags
 This can be done through the widget
 
-## View Keywords In Isolation
+## View Keywords In Isolation (CTRL/META + E => Hotkey)
 You don't have to put variables in one place at the top.
 You can instead put them near their related func and still view them in one place by this feature.
 You can also place TODO anywhere, too.
