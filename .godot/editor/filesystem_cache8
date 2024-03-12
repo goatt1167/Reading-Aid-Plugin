@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710278695
+::res://::1710280470
 icon.svg::CompressedTexture2D::3235070832155337623::1710272458::1710272464::1::::<><>::
-README.md::TextFile::-1::1710278695::0::1::::<><>::
+README.md::TextFile::-1::1710279801::0::1::::<><>::
 ::res://addons/::1710272745
 ::res://addons/Reading Aid/::1710278131
 Line.gd::GDScript::-1::1709365236::0::1::::Line<>RefCounted<>::
@@ -43,5 +43,5 @@ Testing.gd::GDScript::-1::1709951243::0::1::::Testing<>Label<>::
 Testing.tscn::PackedScene::4516359890898702633::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/Testing.gd
 TopMenuButtonArray.gd::GDScript::-1::1710270301::0::1::::TopMenuButtonArray<>HBoxContainer<>::
 TopMenuButtonArray.tscn::PackedScene::6467002602515512553::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/TopMenuButtonArray.gd<>uid://d13p2i333h2q4::::res://addons/Reading Aid/scenes/AnimatedTextureRect.tscn<>uid://bf8jr4pv2pau::::res://addons/Reading Aid/img/fold.png<>uid://byya5umqnv4rr::::res://addons/Reading Aid/img/unfold.png
-::res://demo/::1710278334
+::res://demo/::1710278885
 popup window.png::CompressedTexture2D::9110591173087435144::1710278304::1710278885::1::::<><>::
