@@ -46,6 +46,9 @@ You can also place TODO anywhere, too.
 
 Putting related variables and func near to each other helps my memory. Viewing variables all together also helps my memory. Now I can have both.
 
+## WARNING:
+The custom fold/unfold will pollute the redo/undo space because it injects tags to the script and then deletes the tags.
+
 ## Modify Plugin Setting
 The setting is just a GDScript class. You can
 - change colors, and import new colors.
