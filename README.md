@@ -1,7 +1,7 @@
 # Motivation Behind The Plugin
 I made this plugin to help me read code in big files. I'm sharing it in case it would also benefit someone else. 
 
-# Installation
+# Installation (Godot 4.2)
 1. download and save the `Reading Aid` folder under `res://addons/`.
 2. Then turn on the plugin `Project Setting` => `Plugins` => check mark to turn it on
 
