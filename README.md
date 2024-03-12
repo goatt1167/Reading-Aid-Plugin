@@ -51,3 +51,8 @@ The setting is just a GDScript class. You can
 - change colors, and import new colors.
 - change some behaviors
 - future feature: hide buttons that you don't want to use.
+
+## Project State
+Unfinished features and bugs exist. Issues and bug reports are welcome.
+
+Have fun and have a productive day!
