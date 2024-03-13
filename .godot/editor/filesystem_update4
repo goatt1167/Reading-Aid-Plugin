@@ -1,4 +1,4 @@
-res://addons/Reading Aid/settings.gd
+res://node_2d.tscn
 res://addons/Reading Aid/Theme.tres
-res://README.md
+res://addons/Reading Aid/scenes/BottomButtonArray.gd
 res://addons/Reading Aid/ReadingAid.gd

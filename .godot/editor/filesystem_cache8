@@ -1,17 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710280470
+::res://::1710356936
 icon.svg::CompressedTexture2D::3235070832155337623::1710272458::1710272464::1::::<><>::
-README.md::TextFile::-1::1710279801::0::1::::<><>::
+node_2d.tscn::PackedScene::9094781503852503934::1710351069::0::1::::<><>::
+README.md::TextFile::-1::1710356777::0::1::::<><>::
 ::res://addons/::1710272745
-::res://addons/Reading Aid/::1710278131
+::res://addons/Reading Aid/::1710351069
 Line.gd::GDScript::-1::1709365236::0::1::::Line<>RefCounted<>::
 plugin.cfg::TextFile::-1::1710272551::0::1::::<><>::
 ReadingAid.gd::GDScript::-1::1710278131::0::1::::ReadingAid<>EditorPlugin<>::
 ScriptExtractor.gd::GDScript::-1::1710270301::0::1::::ScriptExtractor<>Object<>::
 settings.gd::GDScript::-1::1710277976::0::1::::Settings<>Object<>::
-Theme.tres::Theme::4635181935403796168::1710277976::0::1::::<><>::uid://cjwcx78tlrmst::::res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf
+Theme.tres::Theme::4635181935403796168::1710351069::0::1::::<><>::uid://cjwcx78tlrmst::::res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf
 treenode.gd::GDScript::-1::1710107832::0::1::::TreeNode<>RefCounted<>::
-::res://addons/Reading Aid/img/::1710272746
+::res://addons/Reading Aid/img/::1710280541
 book.png::CompressedTexture2D::1507379527079267273::1709719424::1710272745::1::::<><>::
 comment_expand.png::CompressedTexture2D::5312000292295980954::1709711448::1710272745::1::::<><>::
 comment_fold.png::CompressedTexture2D::8591296498689467767::1709711407::1710272746::1::::<><>::
@@ -24,11 +25,6 @@ minus_sign.png::CompressedTexture2D::7173057600715112185::1709754999::1710272745
 plus_sign.png::CompressedTexture2D::726928221869388224::1709755039::1710272745::1::::<><>::
 unfold.png::CompressedTexture2D::4120552640670314303::1709583759::1710272745::1::::<><>::
 up.png::CompressedTexture2D::4105575343678709500::1709724538::1710272746::1::::<><>::
-::res://addons/Reading Aid/img/old assets/::1710272746
-book.png::CompressedTexture2D::2077976844747466094::1709717777::1710272745::1::::<><>::
-comment_fold_empty_icon.png::CompressedTexture2D::4853082422534624497::1709712429::1710272745::1::::<><>::
-down.png::CompressedTexture2D::3846073069486217659::1709717483::1710272745::1::::<><>::
-up.png::CompressedTexture2D::1879702910155517573::1709717473::1710272745::1::::<><>::
 ::res://addons/Reading Aid/scenes/::1710272916
 AnimatedTextureRect.gd::GDScript::-1::1710210377::0::1::::AnimatedTextureRect<>TextureRect<>::
 AnimatedTextureRect.tscn::PackedScene::9042933998859989025::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/AnimatedTextureRect.gd

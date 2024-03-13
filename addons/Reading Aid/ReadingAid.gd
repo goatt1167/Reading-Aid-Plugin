@@ -353,8 +353,6 @@ func _comment_button_pressed():
 	_update_comment_bg_colors(0, face_editor.get_line_count())
 
 
-
-
 ##1t# DOC move caret and viewport to new caret location
 ## NOTE this method is exclusively used by popup_window
 func go_to_line(num:int):
@@ -766,6 +764,8 @@ func _rotate_color(line_index:int):
 
 #FEATURE display current function at the top
 #FEATURE bookmarks
+#FEATURE search for func uses
+#FEATURE search for variable uses
 
 #TODO hotkey rotate var num todo
 #TODO improve keyword (todo) extraction
