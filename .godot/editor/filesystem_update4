@@ -1,1 +1,4 @@
-res://README.md
+res://addons/Reading Aid/ReadingAid.gd
+res://addons/Reading Aid/Theme.tres
+res://node_2d.tscn
+res://addons/Reading Aid/settings/settings.gd

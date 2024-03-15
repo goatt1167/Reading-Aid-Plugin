@@ -42,7 +42,7 @@ const INDIGO   = Color(0.5, 0.5, 1, 0.08)
 const DEEPPINK = Color(1, 0.3, 0.6, 0.1)
 const BLUE     = Color(0, 0.3, 0.9, 0.07)
 const YELLOW   = Color(1, 1, 0.2, 0.07)
-const RICE     = Color(1, 1, 0.8, 0.15)
+const RICE     = Color(1, 1, 0.8, 0.12)
 const NAVY_BLUE = Color(0, 0, 0.5, 0.25) # TODO for folded lines?
 
 #1#

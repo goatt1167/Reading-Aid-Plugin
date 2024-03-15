@@ -2,6 +2,20 @@
 extends EditorPlugin
 class_name ReadingAid
 
+## DOC helper: get current time
+var _now:float:
+	get: return Time.get_unix_time_from_system()
+	set(v): pass
+
+
+## get current editor's theme's bg color
+var _default_editor_bg_color:Color:
+	get:
+		assert(face_editor!=null, "var _default_editor_bg_color: face_editor == null")
+		return face_editor.get_theme_color("background_color")
+	set(v): pass
+	
+
 var CommentButtonScene = preload("res://addons/Reading Aid/scenes/CommentButton.tscn")
 
 
@@ -34,25 +48,8 @@ static var popup_window:EditorWindow
 static var shared_comment_button_pool:Array[CommentButton] = [] # INFO connect to face_editor
 
 
-## get current time
-var _now:float:
-	get: return Time.get_unix_time_from_system()
-	set(v): pass
-
-
 static var is_comment_color_mode_on:bool = true
 
-
-## get current editor's theme's bg color
-var _default_editor_bg_color:Color:
-	get:
-		assert(face_editor!=null, "var _default_editor_bg_color: face_editor == null")
-		return face_editor.get_theme_color("background_color")
-	set(v): pass
-
-
-## regex to search for comments' color encode
-var head_space_encode_regex:RegEx
 
 ##1# initial signal setup signals for face_editor and its ScriptEditorBase parent.
 ## 1. face_editor's "exit" signal needs to disconnect children in _button_pool
@@ -71,8 +68,8 @@ func _editor_signal_initial_setup():
 	# text_changed signal, to update bg color more readiy
 	if !face_editor.text_changed.is_connected(_on_editor_text_changed):
 		face_editor.text_changed.connect(_on_editor_text_changed)
-	if !face_editor.resized.is_connected(_display_and_update_bottom_button_array):
-		face_editor.resized.connect(_display_and_update_bottom_button_array)
+	if !face_editor.resized.is_connected(_display_and_update_editor_button_array):
+		face_editor.resized.connect(_display_and_update_editor_button_array)
 
 	if !face_editor.symbol_validate.is_connected(_record_keyword_hover):
 		face_editor.symbol_validate.connect(_record_keyword_hover)
@@ -209,8 +206,6 @@ func _delayed_init():
 		_init_setup_bottom_button_array_after_face_editor()
 		# setup regex
 		var color_palette_string = "".join(Settings.PALETTE.keys())
-		head_space_encode_regex = RegEx.new()
-		head_space_encode_regex.compile("^\\s*#{1,2}[0-9]+[" + color_palette_string + "]{0,1}#")
 		
 		# complete setup
 		_init_completed = true
@@ -332,21 +327,18 @@ func go_to_line(num:int):
 
 func _hide_bottom_button_array():
 	editor_button_array.visible = false
-func _display_and_update_bottom_button_array():
+func _display_and_update_editor_button_array():
 	# siz & pos
 	editor_button_array.setup_UI_component()
-	get_tree().create_timer(0.1).timeout.connect(func(): #HACK tiny bit delay
-		editor_button_array.position = face_editor.size - editor_button_array.size
-		editor_button_array.position.x *= 0.97 # adjustment
-		editor_button_array.position.y *= 0.97 # adjustment
-		editor_button_array.visible = true
-		# if mouse in editor, move menu along the mouse
-		var mouse_pos = face_editor.get_local_mouse_position()
-		if Rect2(Vector2.ZERO, face_editor.size).has_point(mouse_pos):
-			if mouse_pos.y + EDITOR_LINE_HEIGHT < editor_button_array.position.y:
-				editor_button_array.position.y = mouse_pos.y + EDITOR_LINE_HEIGHT
-	)
-	
+	editor_button_array.position = face_editor.size - editor_button_array.size
+	editor_button_array.position.x *= 0.97 # adjustment
+	editor_button_array.position.y *= 0.97 # adjustment
+	editor_button_array.visible = true
+	# if mouse in editor, move menu along the mouse
+	var mouse_pos = face_editor.get_local_mouse_position()
+	if Rect2(Vector2.ZERO, face_editor.size).has_point(mouse_pos):
+		if mouse_pos.y + EDITOR_LINE_HEIGHT < editor_button_array.position.y:
+			editor_button_array.position.y = mouse_pos.y + EDITOR_LINE_HEIGHT
 
 
 
@@ -378,7 +370,7 @@ func _process(delta):
 		if _should_display_comment_buttons:
 			if !_is_displaying_comment_buttons:
 				display_comment_buttons()
-				_display_and_update_bottom_button_array()
+				_display_and_update_editor_button_array()
 			_is_displaying_comment_buttons = true
 			if Input.is_action_just_released(META_CTRL):
 				_should_display_comment_buttons = false
@@ -393,7 +385,10 @@ func _process(delta):
 var _latest_updated_screen_range:Array[int] = [0,0]
 
 
+#TODO did enum_view's popup's line track stop working?
+
 func update_comment_bg_onscreen():
+	#3m# get screen range
 	var minmax = _get_onscreen_line_index_range_and_stretch()
 	_latest_updated_screen_range = minmax
 	if minmax == []: return # this occurs when all files are closed in editor
@@ -415,6 +410,7 @@ func _set_line_background_color(index:int, c:Color):
 		face_editor.set_line_background_color(index, c)
 
 ##1r# DOC draw bg color for comments based on lines
+## INFO uses -[color_comment_line_color]
 ## 1. find special comment tags and store them
 ## 2. update bg color according to tags
 ## WARNING this method will be called extensively, must be optimized
@@ -426,7 +422,7 @@ func update_comment_bg_colors(from_line:int, to_line:int):
 		return
 
 	if face_editor == null: face_editor = script_editor.get_current_editor().get_base_editor()
-	#0g# get active updating range
+	#4g# get active updating range
 	var mini:= from_line
 	var maxi:= to_line
 	var editor_line_count:= face_editor.get_line_count()
@@ -445,7 +441,7 @@ func update_comment_bg_colors(from_line:int, to_line:int):
 	# draw color based on encodes
 	for i in range(mini, maxi):
 		var line = face_editor.get_line(i)
-		var res = head_space_encode_regex.search(line)
+		var res = ScriptExtractor.head_space_encode_regex.search(line)
 		if res: # found qualified comments
 			color_comment_line_numbers.append(i) # signal bridge
 			var tempstring = res.get_string().strip_edges()
@@ -571,3 +567,4 @@ func _hide_comment_buttons():
 #BUG switching NEW script auto bring up bot menu array
 #BUG func and region buttons animation sometimes get stuck for no reason
 #BUG CTRL too short / light can leave menu array residue
+#BUG you forgot about static vars!

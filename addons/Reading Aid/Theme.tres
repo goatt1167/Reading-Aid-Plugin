@@ -51,7 +51,7 @@ border_color = Color(0, 0, 0, 1)
 corner_detail = 5
 
 [resource]
-Button/font_sizes/font_size = 32
+Button/font_sizes/font_size = 28
 Button/fonts/font = ExtResource("1_axuig")
 Button/styles/hover = SubResource("StyleBoxFlat_aoqdd")
 Button/styles/normal = SubResource("StyleBoxFlat_55ner")
