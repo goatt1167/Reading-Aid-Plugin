@@ -1,17 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710280470
+::res://::1710479288
 icon.svg::CompressedTexture2D::3235070832155337623::1710272458::1710272464::1::::<><>::
-README.md::TextFile::-1::1710279801::0::1::::<><>::
+node_2d.tscn::PackedScene::9094781503852503934::1710357616::0::1::::<><>::
+README.md::TextFile::-1::1710479249::0::1::::<><>::
 ::res://addons/::1710272745
-::res://addons/Reading Aid/::1710278131
+::res://addons/Reading Aid/::1710479052
 Line.gd::GDScript::-1::1709365236::0::1::::Line<>RefCounted<>::
 plugin.cfg::TextFile::-1::1710272551::0::1::::<><>::
-ReadingAid.gd::GDScript::-1::1710278131::0::1::::ReadingAid<>EditorPlugin<>::
-ScriptExtractor.gd::GDScript::-1::1710270301::0::1::::ScriptExtractor<>Object<>::
-settings.gd::GDScript::-1::1710277976::0::1::::Settings<>Object<>::
-Theme.tres::Theme::4635181935403796168::1710277976::0::1::::<><>::uid://cjwcx78tlrmst::::res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf
+ReadingAid.gd::GDScript::-1::1710479052::0::1::::ReadingAid<>EditorPlugin<>::
+ScriptExtractor.gd::GDScript::-1::1710405151::0::1::::ScriptExtractor<>Object<>::
+Theme.tres::Theme::4635181935403796168::1710479007::0::1::::<><>::uid://cjwcx78tlrmst::::res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf
 treenode.gd::GDScript::-1::1710107832::0::1::::TreeNode<>RefCounted<>::
-::res://addons/Reading Aid/img/::1710272746
+::res://addons/Reading Aid/img/::1710373540
+arrow_fold.png::CompressedTexture2D::7029891659580778878::1710373525::1710373540::1::::<><>::
 book.png::CompressedTexture2D::1507379527079267273::1709719424::1710272745::1::::<><>::
 comment_expand.png::CompressedTexture2D::5312000292295980954::1709711448::1710272745::1::::<><>::
 comment_fold.png::CompressedTexture2D::8591296498689467767::1709711407::1710272746::1::::<><>::
@@ -24,24 +25,26 @@ minus_sign.png::CompressedTexture2D::7173057600715112185::1709754999::1710272745
 plus_sign.png::CompressedTexture2D::726928221869388224::1709755039::1710272745::1::::<><>::
 unfold.png::CompressedTexture2D::4120552640670314303::1709583759::1710272745::1::::<><>::
 up.png::CompressedTexture2D::4105575343678709500::1709724538::1710272746::1::::<><>::
-::res://addons/Reading Aid/img/old assets/::1710272746
-book.png::CompressedTexture2D::2077976844747466094::1709717777::1710272745::1::::<><>::
-comment_fold_empty_icon.png::CompressedTexture2D::4853082422534624497::1709712429::1710272745::1::::<><>::
-down.png::CompressedTexture2D::3846073069486217659::1709717483::1710272745::1::::<><>::
-up.png::CompressedTexture2D::1879702910155517573::1709717473::1710272745::1::::<><>::
-::res://addons/Reading Aid/scenes/::1710272916
+::res://addons/Reading Aid/scenes/::1710479249
 AnimatedTextureRect.gd::GDScript::-1::1710210377::0::1::::AnimatedTextureRect<>TextureRect<>::
-AnimatedTextureRect.tscn::PackedScene::9042933998859989025::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/AnimatedTextureRect.gd
-BottomButtonArray.gd::GDScript::-1::1710272916::0::1::::BottomButtonArray<>PanelContainer<>::
-BottomButtonArray.tscn::PackedScene::7202672567900498362::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/BottomButtonArray.gd<>uid://b7bk1fjj6b21q::::res://addons/Reading Aid/Theme.tres<>res://addons/Reading Aid/scenes/AnimatedTextureRect.gd<>uid://bf8jr4pv2pau::::res://addons/Reading Aid/img/fold.png<>uid://byya5umqnv4rr::::res://addons/Reading Aid/img/unfold.png
+AnimatedTextureRect.tscn::PackedScene::9042933998859989025::1710399649::0::1::::<><>::res://addons/Reading Aid/scenes/AnimatedTextureRect.gd
+BottomButtonArray.gd::GDScript::-1::1710478547::0::1::::BottomButtonArray<>PanelContainer<>::
+BottomButtonArray.tscn::PackedScene::7202672567900498362::1710479249::0::1::::<><>::res://addons/Reading Aid/scenes/BottomButtonArray.gd<>uid://b7bk1fjj6b21q::::res://addons/Reading Aid/Theme.tres<>res://addons/Reading Aid/scenes/AnimatedTextureRect.gd<>res://addons/Reading Aid/scripts/extraction_button.gd<>res://addons/Reading Aid/scripts/func_button.gd<>uid://bf8jr4pv2pau::::res://addons/Reading Aid/img/fold.png<>uid://byya5umqnv4rr::::res://addons/Reading Aid/img/unfold.png<>uid://c7flj2tkef3e5::::res://addons/Reading Aid/img/arrow_fold.png<>res://addons/Reading Aid/scripts/region_button.gd<>res://addons/Reading Aid/scripts/comment_button.gd
 color_rect.gd::GDScript::-1::1709863679::0::1::::<>ColorRect<>::
-CommentButton.gd::GDScript::-1::1709934699::0::1::::CommentButton<>PanelContainer<>::
-CommentButton.tscn::PackedScene::8229214191824634048::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/CommentButton.gd<>uid://kmenwi3dese7::::res://addons/Reading Aid/img/plus_sign.png<>uid://dagxhfs3s0y22::::res://addons/Reading Aid/img/minus_sign.png<>res://addons/Reading Aid/scenes/color_rect.gd<>uid://vqgk5ucylndx::::res://addons/Reading Aid/img/book.png
-EditorWindow.gd::GDScript::-1::1710272753::0::1::::EditorWindow<>Window<>::
+CommentButton.gd::GDScript::-1::1710406228::0::1::::CommentButton<>PanelContainer<>::
+CommentButton.tscn::PackedScene::8229214191824634048::1710473587::0::1::::<><>::res://addons/Reading Aid/scenes/CommentButton.gd<>uid://kmenwi3dese7::::res://addons/Reading Aid/img/plus_sign.png<>uid://dagxhfs3s0y22::::res://addons/Reading Aid/img/minus_sign.png<>res://addons/Reading Aid/scenes/color_rect.gd<>uid://vqgk5ucylndx::::res://addons/Reading Aid/img/book.png
+EditorWindow.gd::GDScript::-1::1710448132::0::1::::EditorWindow<>Window<>::
 EditorWindow.tscn::PackedScene::5495871712136391999::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/EditorWindow.gd<>uid://b7bk1fjj6b21q::::res://addons/Reading Aid/Theme.tres<>uid://nwbj1yvwv4xc::::res://addons/Reading Aid/img/JetBrainsMono-MediumItalic.ttf
-Testing.gd::GDScript::-1::1709951243::0::1::::Testing<>Label<>::
-Testing.tscn::PackedScene::4516359890898702633::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/Testing.gd
-TopMenuButtonArray.gd::GDScript::-1::1710270301::0::1::::TopMenuButtonArray<>HBoxContainer<>::
-TopMenuButtonArray.tscn::PackedScene::6467002602515512553::1710272745::0::1::::<><>::res://addons/Reading Aid/scenes/TopMenuButtonArray.gd<>uid://d13p2i333h2q4::::res://addons/Reading Aid/scenes/AnimatedTextureRect.tscn<>uid://bf8jr4pv2pau::::res://addons/Reading Aid/img/fold.png<>uid://byya5umqnv4rr::::res://addons/Reading Aid/img/unfold.png
+Testing.tscn::PackedScene::3354122614658752658::1710358362::0::1::::<><>::
+TopMenuButtonArray.gd::GDScript::-1::1710400285::0::1::::TopMenuButtonArray<>HBoxContainer<>::
+TopMenuButtonArray.tscn::PackedScene::6467002602515512553::1710402644::0::1::::<><>::res://addons/Reading Aid/scenes/TopMenuButtonArray.gd<>res://addons/Reading Aid/scripts/extraction_button.gd<>uid://d13p2i333h2q4::::res://addons/Reading Aid/scenes/AnimatedTextureRect.tscn<>res://addons/Reading Aid/scripts/func_button.gd<>uid://bf8jr4pv2pau::::res://addons/Reading Aid/img/fold.png<>uid://byya5umqnv4rr::::res://addons/Reading Aid/img/unfold.png<>res://addons/Reading Aid/scripts/region_button.gd<>res://addons/Reading Aid/scripts/comment_button.gd
+::res://addons/Reading Aid/scripts/::1710448083
+comment_button.gd::GDScript::-1::1710402625::0::1::::<>Button<>::
+extraction_button.gd::GDScript::-1::1710448083::0::1::::<>Button<>::
+func_button.gd::GDScript::-1::1710402418::0::1::::<>Button<>::
+region_button.gd::GDScript::-1::1710402371::0::1::::<>Button<>::
+::res://addons/Reading Aid/settings/::1710362504
+setting.tscn::PackedScene::227821081026387342::1710362504::0::1::::<><>::res://addons/Reading Aid/settings/settings.gd
+settings.gd::GDScript::-1::1710360343::0::1::::Settings<>Object<>::
 ::res://demo/::1710278885
 popup window.png::CompressedTexture2D::9110591173087435144::1710278304::1710278885::1::::<><>::

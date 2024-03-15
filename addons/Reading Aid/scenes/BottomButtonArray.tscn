@@ -1,10 +1,15 @@
-[gd_scene load_steps=45 format=3 uid="uid://dava72nido0la"]
+[gd_scene load_steps=60 format=3 uid="uid://dava72nido0la"]
 
 [ext_resource type="Script" path="res://addons/Reading Aid/scenes/BottomButtonArray.gd" id="1_eaevf"]
 [ext_resource type="Theme" uid="uid://b7bk1fjj6b21q" path="res://addons/Reading Aid/Theme.tres" id="2_11jfc"]
 [ext_resource type="Script" path="res://addons/Reading Aid/scenes/AnimatedTextureRect.gd" id="3_c6jrx"]
+[ext_resource type="Script" path="res://addons/Reading Aid/scripts/extraction_button.gd" id="3_orvh3"]
+[ext_resource type="Script" path="res://addons/Reading Aid/scripts/func_button.gd" id="3_pcm2y"]
 [ext_resource type="Texture2D" uid="uid://bf8jr4pv2pau" path="res://addons/Reading Aid/img/fold.png" id="4_ispuk"]
 [ext_resource type="Texture2D" uid="uid://byya5umqnv4rr" path="res://addons/Reading Aid/img/unfold.png" id="5_a47t1"]
+[ext_resource type="Texture2D" uid="uid://c7flj2tkef3e5" path="res://addons/Reading Aid/img/arrow_fold.png" id="5_koc5h"]
+[ext_resource type="Script" path="res://addons/Reading Aid/scripts/region_button.gd" id="7_6ovur"]
+[ext_resource type="Script" path="res://addons/Reading Aid/scripts/comment_button.gd" id="10_c4fpx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5il6"]
 bg_color = Color(0, 0, 0, 0.784314)
@@ -23,37 +28,77 @@ shadow_color = Color(0, 0, 0, 0.392157)
 shadow_size = 8
 shadow_offset = Vector2(2, 6)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hx0we"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp35o"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5tdsk"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxey3"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w1jcx"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiq5e"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6bvh"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6miq"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yorps"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n77u"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_btwkm"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6utv1"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_so7bo"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h0t8"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwwk0"]
-atlas = ExtResource("4_ispuk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0khp"]
+atlas = ExtResource("5_koc5h")
 region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50eua"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a262j"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wal1c"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdv0t"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj4l0"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t8mu"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vtng"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfe15"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc73k"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jauo"]
+atlas = ExtResource("5_koc5h")
+region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hnvn0"]
 atlas = ExtResource("5_a47t1")
@@ -98,33 +143,66 @@ region = Rect2(288, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_vhp7f"]
 animations = [{
 "frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_hx0we")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_5tdsk")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp35o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w1jcx")
+"texture": SubResource("AtlasTexture_kxey3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t6bvh")
+"texture": SubResource("AtlasTexture_fiq5e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yorps")
+"texture": SubResource("AtlasTexture_d6miq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_btwkm")
+"texture": SubResource("AtlasTexture_5n77u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_so7bo")
+"texture": SubResource("AtlasTexture_6utv1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwwk0")
+"texture": SubResource("AtlasTexture_4h0t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0khp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50eua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a262j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wal1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdv0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj4l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t8mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vtng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfe15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc73k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jauo")
+}, {
+"duration": 17.0,
+"texture": SubResource("AtlasTexture_bp35o")
 }],
 "loop": true,
 "name": &"fold",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -314,25 +392,34 @@ layout_mode = 2
 [node name="hbox" type="HBoxContainer" parent="margin"]
 layout_mode = 2
 
-[node name="var_button" type="Button" parent="margin/hbox"]
+[node name="back" type="Button" parent="margin/hbox"]
+layout_mode = 2
+theme = ExtResource("2_11jfc")
+text = " back "
+
+[node name="var" type="Button" parent="margin/hbox"]
 layout_mode = 2
 theme = ExtResource("2_11jfc")
 text = " var "
+script = ExtResource("3_orvh3")
 
-[node name="todo_button" type="Button" parent="margin/hbox"]
+[node name="todo" type="Button" parent="margin/hbox"]
 layout_mode = 2
 theme = ExtResource("2_11jfc")
 text = " TODO "
+script = ExtResource("3_orvh3")
 
-[node name="enum_button" type="Button" parent="margin/hbox"]
+[node name="enum" type="Button" parent="margin/hbox"]
 layout_mode = 2
 theme = ExtResource("2_11jfc")
 text = " enum "
+script = ExtResource("3_orvh3")
 
 [node name="func_button" type="Button" parent="margin/hbox"]
 layout_mode = 2
 theme = ExtResource("2_11jfc")
 text = " func "
+script = ExtResource("3_pcm2y")
 
 [node name="animation" type="TextureRect" parent="margin/hbox/func_button"]
 layout_mode = 1
@@ -341,6 +428,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 stretch_mode = 5
 script = ExtResource("3_c6jrx")
 sprites = SubResource("SpriteFrames_vhp7f")
@@ -349,6 +437,7 @@ sprites = SubResource("SpriteFrames_vhp7f")
 layout_mode = 2
 theme = ExtResource("2_11jfc")
 text = " #region "
+script = ExtResource("7_6ovur")
 
 [node name="animation" type="TextureRect" parent="margin/hbox/region_button"]
 layout_mode = 1
@@ -366,7 +455,9 @@ sprites = SubResource("SpriteFrames_6uwy6")
 layout_mode = 2
 theme = ExtResource("2_11jfc")
 text = " ##color "
+script = ExtResource("10_c4fpx")
 
+[connection signal="pressed" from="margin/hbox/back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="margin/hbox/func_button" to="." method="play_func_button_fold_unfold_animation"]
 [connection signal="mouse_exited" from="margin/hbox/func_button" to="." method="stop_func_button_animation"]
 [connection signal="mouse_entered" from="margin/hbox/region_button" to="." method="play_region_button_fold_unfold_animation"]

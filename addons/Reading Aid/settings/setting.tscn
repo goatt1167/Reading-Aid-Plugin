@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dimgd8s2rb0a"]
+
+[ext_resource type="Script" path="res://addons/Reading Aid/settings/settings.gd" id="1_mjoh2"]
+
+[node name="Setting" type="Node"]
+script = ExtResource("1_mjoh2")
+comment_redraw_cooldown = 0.3

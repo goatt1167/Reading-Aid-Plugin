@@ -2,14 +2,14 @@
 extends HBoxContainer
 class_name TopMenuButtonArray
 
-@onready var enum_button:Button   = $enum_button
-@onready var var_button :Button   = $var_button
+@onready var enum_button:Button   = $enum
+@onready var var_button :Button   = $var
 
 @onready var func_button:Button   = $func_button
 @onready var region_button:Button = $region_button
 
 @onready var comment_button:Button = $comment_button
-@onready var todo_button:Button = $todo_button
+@onready var todo_button:Button = $todo
 
 ## NOTE Animation Names
 const FOLD = "fold"

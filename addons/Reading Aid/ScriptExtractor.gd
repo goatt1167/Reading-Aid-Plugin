@@ -2,7 +2,7 @@ extends Object
 class_name ScriptExtractor
 
 
-## NOTE extract enums from an editor, organize info and return
+##1# DOC extract enums from an editor, organize info and return
 ##           Line : { text, line_number}
 ## one_enum_block : Array[Line]
 ##          enums : Array[one_enum_block] or Array[Array[Line]]
@@ -44,8 +44,9 @@ static func extract_enums(editor:CodeEdit) -> Array[Array]:
 			index += 1
 			
 	return enums
-	
-	
+
+
+##1#
 static func extract_vars(editor:CodeEdit) -> Array[Array]:
 	var vars:Array[Array] = []
 	var line_count = editor.get_line_count()
@@ -114,7 +115,7 @@ static func _get_end_index(editor:CodeEdit, start:int) -> int:
 	return end
 
 #FIXME doesn't include comments above the tagged lines
-## extract todos and return everything in a giant block
+##1# extract todos and return everything in a giant block
 static func extract_todos(editor:CodeEdit) -> Array[Array]:
 	var one_block:Array[Line] = []
 	var index:= 0
@@ -142,3 +143,79 @@ static func _contains_tag(string:String, tags:Array[String]) -> bool:
 	for tag in tags:
 		if string.contains(tag): return true
 	return false
+
+
+
+
+
+#TODO needs init?
+
+##1r#
+static var head_space_encode_regex:RegEx:
+	get:
+		if head_space_encode_regex == null:
+			head_space_encode_regex = RegEx.new()
+			var color_palette_string = "".join(Settings.PALETTE.keys())
+			head_space_encode_regex.compile("^\\s*#{1,2}[0-9]+[" + color_palette_string + "]{0,1}#")
+		return head_space_encode_regex
+
+
+##1r#
+static func assert_valid_encode(encode:String):
+	var res = head_space_encode_regex.search(encode)
+	assert(res!=null and res.get_string().strip_edges() == encode,
+	"func _assert_valid_encode: bad comment encoding: \"" + encode + "\"")
+
+
+##1r# DOC Sometimes, the returned char is a valid key in palette, sometimes, it's not
+## WARNING When it's not a valid key, the invald chars should be a number.
+static func color_char_from_encode(encode:String) -> String:
+	assert_valid_encode(encode)
+	var char = encode[-2]
+	if "0123456789".contains(char): return ""
+	return char
+
+
+##1r# DOC in palette, find the char next to the one provided in the encode
+static func next_color_char_from_encode(encode:String) -> String:
+	var color_char = color_char_from_encode(encode)
+	var keys = Settings.PALETTE.keys()
+	# in case of not found, find would be -1, next would be 0, perfect
+	var next_index = keys.find(color_char) + 1;
+	#2m# if next_index is out of bound, return an invalid color char
+	if next_index == keys.size(): return ""
+	return keys[next_index]
+
+
+##1r# get color from palette corresponding to the given char
+## WARNING the parameter char can be an invalid key in palette.
+## Use dictionary's default parameter
+static func color_from_char(color_char:String) -> Color:
+	return Settings.PALETTE.get(color_char, Settings.PLACEHOLDER_COLOR)
+
+
+##1r# get index range of color encode in given string
+## return: [start_index(inclusive), end_index(inclusive)]
+## return [] if encode is not found
+static func get_color_encode_range(string:String) -> Array[int]:
+	# check: does the string contain a valid color encode?
+	var res = head_space_encode_regex.search(string); var encode:String
+	if res: encode = res.get_string().strip_edges()
+	else: return [] # no valid encode returns []
+	#2m# find the index of the first non-empty character
+	var start:= -1
+	for i in string.length(): if !["\t", " "].has(string[i]): start = i; break
+	# check: is the encode at the start of the string
+	if string.substr(start, encode.length()) == encode: return [start, start+encode.length()-1]
+	else: return []
+
+
+##1r# Count extra comments. Emphasis is on extra, meaning starting from line 2 of the comment section
+static func extra_comment_lines(editor:CodeEdit, line_index:int):
+	var index = line_index+1
+	var count = 0
+	while index < editor.get_line_count():
+		if editor.is_in_comment(index) >= 0: count += 1
+		else: break
+		index += 1
+	return count

@@ -2,9 +2,9 @@
 extends PanelContainer
 class_name BottomButtonArray
 
-@onready var enum_button:Button = $margin/hbox/enum_button
-@onready var var_button:Button  = $margin/hbox/var_button
-@onready var todo_button:Button = $margin/hbox/todo_button
+@onready var enum_button:Button = $margin/hbox/enum
+@onready var var_button:Button  = $margin/hbox/var
+@onready var todo_button:Button = $margin/hbox/todo
 @onready var func_button:Button = $margin/hbox/func_button
 @onready var region_button:Button = $margin/hbox/region_button
 @onready var comment_button:Button = $margin/hbox/comment_button
@@ -14,6 +14,7 @@ func setup_UI_component():
 	var line_height = ReadingAid.EDITOR_LINE_HEIGHT
 	size = Vector2.ZERO
 	custom_minimum_size.y = line_height * 2
+	queue_sort()
 	
 	var margin:int = line_height*1.6/10
 	$margin/hbox.add_theme_constant_override("separation", margin)
@@ -37,6 +38,8 @@ func setup_UI_component():
 		/ (4.0/3.0) / ReadingAid.EDITOR_CODE_FONT_SIZE
 	var font_size = ceil((ReadingAid.EDITOR_CODE_FONT_SIZE) * display_scale)
 	enum_button.theme.set_font_size("font_size", "Button", font_size)
+	
+	$margin/hbox/back.visible = ReadingAid.global.keyword_last_clicked != []
 	
 
 func _button_size() -> int:
@@ -68,3 +71,7 @@ func play_region_button_fold_unfold_animation():
 
 func stop_region_button_animation():
 	$margin/hbox/region_button/animation.stop()
+
+
+func _on_back_pressed():
+	ReadingAid.global.go_back()
