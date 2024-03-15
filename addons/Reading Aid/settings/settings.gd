@@ -4,10 +4,35 @@
 extends Object
 class_name Settings
 
+@export_category("Settings")
 
-const COMMENT_BG_COLOR_UPDATE_COOLDOWN:float = 0.3
+##1i# max number of lines allowed in a single colored comment block
+@export_range(15,36) var max_comment_line_in_color:int = 30
 
-const MAX_COMMENT_BG_COLOR_LINE_COUNT = 30
+
+##1i#
+@export var comment_redraw_cooldown:float = 0.5
+
+
+
+static var _singleton:Settings:
+	get:
+		if _singleton == null:
+			_singleton = Settings.new()
+		return _singleton
+	set(v): _singleton = v
+
+
+static var MAX_COMMENT_BG_COLOR_LINE_COUNT:int:
+	get: return _singleton.max_comment_line_in_color
+
+
+static var COMMENT_BG_COLOR_UPDATE_COOLDOWN:float:
+	get: return _singleton.comment_redraw_cooldown
+
+
+
+
 
 const GREEN    = Color(0, 1 ,0, 0.04)
 const DARK     = Color(0, 0, 0, 0.24)

@@ -2,7 +2,7 @@
 I made this plugin to help me read code in big files. I'm sharing it in case it would also benefit someone else. 
 
 # Installation (Godot 4.2)
-1. close Godot Studio. Download the zip.
+1. close Godot Studio. Download the zip. IMPORTANT: only use the `Reading Aid` folder under `addons` and throw away everything else.
 2. Move `addons/Reading Aid` folder from the downloaded zip to `res://addons`.
 3. Start Godot, turn on the plugin `Project Setting` => `Plugins` => check mark to turn it on
 
@@ -10,8 +10,9 @@ I made this plugin to help me read code in big files. I'm sharing it in case it 
 1. code background color
 2. custom code fold/unfold in color blocks
 3. view all variables, or tags such as TODO, or all enums
-4. fold/unfold all func or #region
-5. modify the plugin setting
+4. go back after looking up (CTRL+LMB) in files. Not working with documentation, though.
+5. fold/unfold all func or #region
+6. modify the plugin setting
 
 ## Code Background Color
 To Aid your reading, the code background can be colored.

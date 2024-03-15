@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5l011obwceaj"]
+[gd_scene load_steps=2 format=3 uid="uid://bn1056j3wrmna"]
 
-[ext_resource type="Script" path="res://addons/Reading Aid/scenes/Testing.gd" id="1_pt0s8"]
+[sub_resource type="GDScript" id="GDScript_8y5pj"]
+script/source = "@tool
+extends Label
+class_name Testing
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	printt(text, \"is ready at\", Time.get_unix_time_from_system())
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _enter_tree():
+	printt(text, \"enter tree\", Time.get_unix_time_from_system())
+"
 
 [node name="Testing" type="Label"]
 anchors_preset = 15
@@ -9,18 +27,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "NODE_A"
-script = ExtResource("1_pt0s8")
+script = SubResource("GDScript_8y5pj")
 
 [node name="Testing" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 text = "NODE_B"
-script = ExtResource("1_pt0s8")
+script = SubResource("GDScript_8y5pj")
 
 [node name="Testing" type="Label" parent="Testing"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 text = "NODE_C"
-script = ExtResource("1_pt0s8")
+script = SubResource("GDScript_8y5pj")

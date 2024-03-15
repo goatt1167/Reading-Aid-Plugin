@@ -192,34 +192,31 @@ var display_timestamp:= -1.0
 var _source_editor:CodeEdit
 var _extract:Array[Array]
 ## NOTE pop up the window and display given Array[Array[Line]] blocks
-func popup_and_display(file_name:String, editor:CodeEdit, tab:Tab, \
-	follow_mouse:bool = false, line_num:int = -1):
+func popup_and_display_face_editor(tab:Tab):
 	if _now - display_timestamp < 0.4: return # prevent instant re-open
 	
 	if visible: # to unparent before being used again
 		visible = false 
-	
-	
 
 	visible = true
 	# TODO resizable setting by removing [Borderless] flag
 	EditorInterface.popup_dialog_centered_ratio(self, 0.55)
 	
-	_source_editor = editor
+	_source_editor = ReadingAid.face_editor
 	_display_tab(tab)
-	
-	if follow_mouse:
-		position += Vector2i(Vector2(size.x*0.15, -size.y*0.15))
 
 	# set caret position
-	if line_num >= 0:
-		var index = 0
-		for i in _line_lookup.size():
-			if _line_lookup[i] >= line_num:
-				index = i; break
-		windowed_editor.set_caret_line(index, true)
-		
-	$panel/vbox/panel1/hbox/file_name_label.text = file_name
+	var line_num = ReadingAid.face_editor.get_caret_line()
+	var index = 0
+	for i in _line_lookup.size():
+		if _line_lookup[i] >= line_num:
+			index = i; break
+	windowed_editor.set_caret_line(index, true)
+	
+	$panel/vbox/panel1/hbox/file_name_label.text = \
+		ReadingAid.script_editor.get_current_script().resource_path.get_file()
+
+	grab_focus()
 
 
 
