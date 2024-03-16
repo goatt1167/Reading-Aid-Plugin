@@ -1,15 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710567559
+::res://::1710568556
 icon.svg::CompressedTexture2D::3235070832155337623::1710272458::1710272464::1::::<><>::
-node_2d.tscn::PackedScene::9094781503852503934::1710479499::0::1::::<><>::
+node_2d.tscn::PackedScene::9094781503852503934::1710568543::0::1::::<><>::
 README.md::TextFile::-1::1710479499::0::1::::<><>::
 ::res://addons/::1710272745
-::res://addons/Reading Aid/::1710567510
+::res://addons/Reading Aid/::1710568543
 Line.gd::GDScript::-1::1709365236::0::1::::Line<>RefCounted<>::
 plugin.cfg::TextFile::-1::1710272551::0::1::::<><>::
-ReadingAid.gd::GDScript::-1::1710567510::0::1::::ReadingAid<>EditorPlugin<>::
-ScriptExtractor.gd::GDScript::-1::1710479499::0::1::::ScriptExtractor<>Object<>::
-Theme.tres::Theme::4635181935403796168::1710567510::0::1::::<><>::uid://cjwcx78tlrmst::::res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf
+ReadingAid.gd::GDScript::-1::1710568465::0::1::::ReadingAid<>EditorPlugin<>::
+ScriptExtractor.gd::GDScript::-1::1710568543::0::1::::ScriptExtractor<>Object<>::
+Theme.tres::Theme::4635181935403796168::1710567686::0::1::::<><>::uid://cjwcx78tlrmst::::res://addons/Reading Aid/img/JetBrainsMonoNL-Medium.ttf
 treenode.gd::GDScript::-1::1710107832::0::1::::TreeNode<>RefCounted<>::
 ::res://addons/Reading Aid/img/::1710479499
 arrow_fold.png::CompressedTexture2D::7029891659580778878::1710479499::1710479499::1::::<><>::

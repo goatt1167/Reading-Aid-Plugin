@@ -8,7 +8,7 @@ var line_index:int = -1
 var editor:CodeEdit: 
 	get: return ReadingAid.face_editor
 
-#1g#
+#1g
 func get_b1_size():
 	pass
 	#return $hbox/rect1.size
@@ -131,14 +131,14 @@ func _on_color_button_down():
 
 	var new_color_char = ScriptExtractor.next_color_char_from_encode(encode)
 
-	#5d# manipulate the string
+	#5d manipulate the string
 	var prefix = "##" if encode[1] == "#" else "#"
 	var number = encode.to_int()
-	var new_encode = prefix + str(number) + new_color_char + "#"
+	var new_encode = prefix + str(number) + new_color_char
 
 	string = string.erase(minmax[0], minmax[1]-minmax[0]+1).insert(minmax[0], new_encode)
 	
-	#4i# find the button (_color_comment_line_numbers and _buttons indices match)
+	#4i find the button (_color_comment_line_numbers and _buttons indices match)
 	var button_index
 	for i in ReadingAid.color_comment_line_numbers.size():
 		if ReadingAid.color_comment_line_numbers[i] == line_index:

@@ -51,7 +51,7 @@ static var shared_comment_button_pool:Array[CommentButton] = [] # INFO connect t
 static var is_comment_color_mode_on:bool = true
 
 
-##1# initial signal setup signals for face_editor and its ScriptEditorBase parent.
+##1 initial signal setup signals for face_editor and its ScriptEditorBase parent.
 ## 1. face_editor's "exit" signal needs to disconnect children in _button_pool
 ## 2. ScriptEditorBase "script_changed" signal needs to re-color comment bg
 ## 3. face_editor's "text_change" signal to update bg color more readily
@@ -104,7 +104,7 @@ func go_back():
 
 
 
-##1# remove children when face_editor is about to exit scene tree.
+##1 remove children when face_editor is about to exit scene tree.
 ## when does it occur?
 ##    - When you close a script.
 ## why remove children?
@@ -115,7 +115,7 @@ func _remove_child_buttons(editor:CodeEdit):
 	if editor.get_children().has(editor_button_array): editor.remove_child(editor_button_array)
 
 
-##1#
+##1
 func _enter_tree():
 	if !script_editor.editor_script_changed.is_connected(_on_changing_active_script):
 		script_editor.editor_script_changed.connect(_on_changing_active_script)
@@ -135,7 +135,7 @@ func _enter_tree():
 
 
 
-##1#
+##1
 func _exit_tree():
 	#2m# free buttons in menu bar
 	script_editor.get_child(0).get_child(0).remove_child(top_menu_button_array)
@@ -150,7 +150,7 @@ func _exit_tree():
 
 
 
-##1# DOC plugin life cycle (like _enter_tree)
+##1 DOC plugin life cycle (like _enter_tree)
 ## Upon arriving at new script
 ## 1. hook face_editor's exit_tree signal
 ## 2. face_editor connect to shared_comment_button_pool
@@ -177,10 +177,10 @@ func _on_changing_active_script(_script:Script):
 
 
 
-##1# signal bridge to pause _process(), _input() and _on_change_script()
+##1 signal bridge to pause _process(), _input() and _on_change_script()
 var _init_completed = false
 var _delay_init_timer:Timer
-##1# the setup to be delayed until the script_editor gets its editors open
+##1 the setup to be delayed until the script_editor gets its editors open
 ## WARNING the plugin enter the tree before the IDE has CodeEdit editor ready.
 ## Many func that uses face_editor will print error because it's null.
 ## The HACK here is to delay the setup until script_editor has CodeEdit ready.
@@ -213,7 +213,7 @@ func _delayed_init():
 		_delay_init_timer.start(0.5)
 
 
-##3# setup hotkey
+##3 setup hotkey
 const E = &"E Key"
 const META_CTRL = &"META/CTRL Key"
 const TAB = &"TAB Key"
@@ -236,7 +236,7 @@ func _setup_hotkey(): # NOTE hot keys are available for other classes too.
 	InputMap.action_add_event(TAB, event_tab)
 
 
-##1#
+##1
 func _init_setup_top_menu_button_array():
 	top_menu_button_array = preload("res://addons/Reading Aid/scenes/TopMenuButtonArray.tscn")\
 		.instantiate()
@@ -244,7 +244,7 @@ func _init_setup_top_menu_button_array():
 	script_editor.get_child(0).get_child(0).add_child(top_menu_button_array)
 	top_menu_button_array.move_to_front()
 
-##1#
+##1
 func _init_setup_bottom_button_array_after_face_editor():
 	editor_button_array = preload("res://addons/Reading Aid/scenes/BottomButtonArray.tscn").instantiate()
 	face_editor.add_child(editor_button_array)
@@ -254,7 +254,7 @@ func _init_setup_bottom_button_array_after_face_editor():
 
 
 
-##1#
+##1
 func _init_setup_popup_window_after_face_editor():
 	popup_window = preload("res://addons/Reading Aid/scenes/EditorWindow.tscn").instantiate()
 	popup_window.configure_theme()
@@ -296,7 +296,7 @@ func _get_editor_settings():
 
 
 
-##1#
+##1
 func _input(event:InputEvent):
 	if !_init_completed: return
 	if Input.is_action_pressed(META_CTRL):
@@ -314,11 +314,11 @@ func _input(event:InputEvent):
 
 
 
-##1t# DOC record if comment color mode is on
+##1t DOC record if comment color mode is on
 
 
 
-##1t# DOC move caret and viewport to new caret location
+##1t DOC move caret and viewport to new caret location
 ## NOTE this method is exclusively used by popup_window
 func go_to_line(num:int):
 	face_editor.set_caret_line(num)
@@ -367,7 +367,7 @@ func _process(delta):
 				update_comment_bg_onscreen()
 			_cooldown = 0
 		
-		#10i# receive signal and display comment buttons
+		#10i receive signal and display comment buttons
 		if _should_display_comment_buttons:
 			if !_is_displaying_comment_buttons:
 				display_comment_buttons()
@@ -410,30 +410,30 @@ func _set_line_background_color(index:int, c:Color):
 	if face_editor.get_line_background_color(index) != EDITOR_ERROR_BG_COLOR:
 		face_editor.set_line_background_color(index, c)
 
-##1r# DOC draw bg color for comments based on lines
+##1r DOC draw bg color for comments based on lines
 ## INFO uses -[color_comment_line_color]
 ## 1. find special comment tags and store them
 ## 2. update bg color according to tags
 ## WARNING this method will be called extensively, must be optimized
 func update_comment_bg_colors(from_line:int, to_line:int):
-	#4g# if setting says no color, remove all color
+	#4g if setting says no color, remove all color
 	if is_comment_color_mode_on == false:
 		for i in face_editor.get_line_count():
 			_set_line_background_color(i, _default_editor_bg_color)
 		return
 
 	if face_editor == null: face_editor = script_editor.get_current_editor().get_base_editor()
-	#4g# get active updating range
+	#4g get active updating range
 	var mini:= from_line
 	var maxi:= to_line
 	var editor_line_count:= face_editor.get_line_count()
 	if maxi == -1 or maxi >= editor_line_count: maxi = editor_line_count
 
 	var color_char:String; var color:Color; var num:int
-	#1g# signal bridge to be processed by other methods
+	#1g signal bridge to be processed by other methods
 	color_comment_line_numbers = [] 
 	
-	#2g#- to avoid color pollution, bg color needs to be pre-cleaned
+	#2g - to avoid color pollution, bg color needs to be pre-cleaned
 	#   - bg is being purged constantly by Parser's parsing
 	#   - don't intervene with parser's error marks, leave red markers alone
 	for i in range(mini, maxi):
@@ -468,7 +468,7 @@ var _previous_line_index_onscreen:Array[int] = [0,-1]
 
 
 
-##1r# DOC find the line index range to be updated for the current viewport
+##1r DOC find the line index range to be updated for the current viewport
 func _get_onscreen_line_index_range_and_stretch() -> Array[int]:
 	var editor_size:Vector2 = face_editor.size
 	var ceiling_mid:Vector2 = Vector2(editor_size.x/2, 0)
