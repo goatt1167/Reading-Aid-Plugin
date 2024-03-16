@@ -89,9 +89,11 @@ static func extract_vars(editor:CodeEdit) -> Array[Array]:
 
 
 static func _is_var_or_constant_or_annotation(string:String) -> bool:
-	if string.length() == 0: return false
-	if string[0] == "v" and string.substr(0,4) == "var ": return true
-	if string[0] == "c" and string.substr(0,6) == "const ": return true
+	var len:int = string.length()
+	if len == 0: return false
+	if string[0] == "v" and len > 4 and string.substr(0,4) == "var ": return true
+	if string[0] == "c" and len > 6 and string.substr(0,6) == "const ": return true
+	if string[0] == "s" and len > 11 and string.substr(0,11) == "static var ": return true
 	if string[0] == "@": return true
 	return false
 

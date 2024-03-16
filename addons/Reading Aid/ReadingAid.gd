@@ -238,7 +238,8 @@ func _setup_hotkey(): # NOTE hot keys are available for other classes too.
 
 ##1#
 func _init_setup_top_menu_button_array():
-	top_menu_button_array = preload("res://addons/Reading Aid/scenes/TopMenuButtonArray.tscn").instantiate()
+	top_menu_button_array = preload("res://addons/Reading Aid/scenes/TopMenuButtonArray.tscn")\
+		.instantiate()
 	# make sure button enters tree before connecting signals
 	script_editor.get_child(0).get_child(0).add_child(top_menu_button_array)
 	top_menu_button_array.move_to_front()
@@ -538,7 +539,8 @@ func display_comment_buttons():
 		shared_comment_button_pool[i].visible = true
 		shared_comment_button_pool[i].line_index = line_index
 		#1# fix mouse wheel font change causing panel container's inaccurate size
-		shared_comment_button_pool[i].size = shared_comment_button_pool[i].get_combined_minimum_size()
+		shared_comment_button_pool[i].size = \
+			shared_comment_button_pool[i].get_combined_minimum_size()
 
 
 
@@ -555,16 +557,13 @@ func _hide_comment_buttons():
 #FEATURE search for func uses
 #FEATURE search for variable uses
 
-#TODO hotkey rotate var num todo
 #TODO improve keyword (todo) extraction
 #TODO setting to configure buttons
 #TODO improve region and func animation
 #TODO change tag from #1# to #1
-#TODO resize the window
 #TODO if cursor already there, disable back
 
 #BUG holding ctrl while resizing the window permanently leaves tags on.
 #BUG switching NEW script auto bring up bot menu array
 #BUG func and region buttons animation sometimes get stuck for no reason
 #BUG CTRL too short / light can leave menu array residue
-#BUG you forgot about static vars!
