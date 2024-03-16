@@ -560,7 +560,6 @@ func _hide_comment_buttons():
 #TODO improve keyword (todo) extraction
 #TODO setting to configure buttons
 #TODO improve region and func animation
-#TODO change tag from #1# to #1
 #TODO if cursor already there, disable back
 
 #BUG holding ctrl while resizing the window permanently leaves tags on.
