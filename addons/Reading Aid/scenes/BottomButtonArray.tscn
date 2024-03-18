@@ -19,10 +19,10 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.137255, 0.137255, 0.137255, 1)
 border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.392157)
 shadow_size = 8
@@ -381,13 +381,15 @@ animations = [{
 
 [node name="BottomButtonArray" type="PanelContainer"]
 visible = false
-offset_right = 828.0
-offset_bottom = 51.0
+offset_right = 1291.0
+offset_bottom = 55.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f5il6")
 script = ExtResource("1_eaevf")
 
 [node name="margin" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
 
 [node name="hbox" type="HBoxContainer" parent="margin"]
 layout_mode = 2

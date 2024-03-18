@@ -249,6 +249,7 @@ func _init_setup_bottom_button_array_after_face_editor():
 	editor_button_array = preload("res://addons/Reading Aid/scenes/BottomButtonArray.tscn").instantiate()
 	face_editor.add_child(editor_button_array)
 	editor_button_array.move_to_front()
+	editor_button_array.configure_button_theme()
 	_hide_bottom_button_array()
 
 
@@ -293,6 +294,9 @@ func _get_editor_settings():
 		("interface/editor/code_font_size")
 	EDITOR_LINE_SPACING = EditorInterface.get_editor_settings().get_setting \
 		("text_editor/appearance/whitespace/line_spacing")
+	
+	if editor_button_array != null:
+		editor_button_array.configure_button_theme()
 
 
 
@@ -330,7 +334,8 @@ func _hide_bottom_button_array():
 	editor_button_array.visible = false
 func _display_and_update_editor_button_array():
 	# siz & pos
-	editor_button_array.setup_UI_component()
+	editor_button_array.configure_button_theme()
+	editor_button_array.configure_button_state()
 	editor_button_array.position = face_editor.size - editor_button_array.size
 	editor_button_array.position.x *= 0.97 # adjustment
 	editor_button_array.position.y *= 0.97 # adjustment
@@ -556,11 +561,12 @@ func _hide_comment_buttons():
 #FEATURE bookmarks
 #FEATURE search for func uses
 #FEATURE search for variable uses
+#FEATURE search in viewer
 
 #TODO improve keyword (todo) extraction
 #TODO setting to configure buttons
 #TODO improve region and func animation
-#TODO if cursor already there, disable back
+#TODO if cursor already there in the same screen, disable back
 
 #BUG holding ctrl while resizing the window permanently leaves tags on.
 #BUG switching NEW script auto bring up bot menu array

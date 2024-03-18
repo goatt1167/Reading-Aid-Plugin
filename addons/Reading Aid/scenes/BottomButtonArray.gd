@@ -10,12 +10,13 @@ class_name BottomButtonArray
 @onready var comment_button:Button = $margin/hbox/comment_button
 
 
-func setup_UI_component():
+
+## DOC configure theme related to Editor's settings
+func configure_button_theme():
 	var line_height = ReadingAid.EDITOR_LINE_HEIGHT
-	size = Vector2.ZERO
 	custom_minimum_size.y = line_height * 2
-	queue_sort()
 	
+	#6 buttons' margins
 	var margin:int = line_height*1.6/10
 	$margin/hbox.add_theme_constant_override("separation", margin)
 	$margin.add_theme_constant_override("margin_bottom", margin)
@@ -23,6 +24,7 @@ func setup_UI_component():
 	$margin.add_theme_constant_override("margin_left", margin)
 	$margin.add_theme_constant_override("margin_right", margin)
 	
+	#6 buttons' font color
 	enum_button.add_theme_color_override("font_color", ReadingAid.EDITOR_KEYWORD_COLOR)
 	var_button.add_theme_color_override("font_color", ReadingAid.EDITOR_KEYWORD_COLOR)
 	todo_button.add_theme_color_override("font_color", ReadingAid.EDITOR_WARNING_COLOR)
@@ -30,6 +32,7 @@ func setup_UI_component():
 	region_button.add_theme_color_override("font_color", ReadingAid.EDTIOR_COMMENT_COLOR)
 	comment_button.add_theme_color_override("font_color", ReadingAid.EDITOR_DOC_COLOR)
 
+	#4 buttons' font size  
 	# manually estimate display_scale because editor provides a wrong value
 	# HACK 1pt font size = 1.3333 pixel
 	# 15pt font size = 20 pixel ish??
@@ -38,12 +41,18 @@ func setup_UI_component():
 		/ (4.0/3.0) / ReadingAid.EDITOR_CODE_FONT_SIZE
 	var font_size = ceil((ReadingAid.EDITOR_CODE_FONT_SIZE) * display_scale)
 	enum_button.theme.set_font_size("font_size", "Button", font_size)
-	
-	$margin/hbox/back.visible = ReadingAid.global.keyword_last_clicked != []
-	
 
-func _button_size() -> int:
-	return $margin/hbox.get_children().size()
+
+
+func configure_button_state():
+	# update UI
+	var line_height = ReadingAid.EDITOR_LINE_HEIGHT
+	size = Vector2.ZERO # remove size
+	custom_minimum_size.y = line_height * 2 # remove min size
+	
+	$margin/hbox/back.disabled = ReadingAid.global.keyword_last_clicked == []
+
+
 
 
 

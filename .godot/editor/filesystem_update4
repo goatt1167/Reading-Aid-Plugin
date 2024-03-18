@@ -1,6 +1,5 @@
-res://node_2d.tscn
+res://addons/Reading Aid/scenes/BottomButtonArray.tscn
 res://addons/Reading Aid/Theme.tres
-res://addons/Reading Aid/ScriptExtractor.gd
-res://addons/Reading Aid/scenes/CommentButton.tscn
-res://addons/Reading Aid/scenes/CommentButton.gd
+res://addons/Reading Aid/scenes/BottomButtonArray.gd
 res://addons/Reading Aid/ReadingAid.gd
+res://node_2d.tscn
