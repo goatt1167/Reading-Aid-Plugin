@@ -563,7 +563,6 @@ func _hide_comment_buttons():
 #FEATURE search for variable uses
 #FEATURE search in viewer
 
-#TODO improve keyword (todo) extraction
 #TODO setting to configure buttons
 #TODO improve region and func animation
 #TODO if cursor already there in the same screen, disable back

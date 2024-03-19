@@ -116,28 +116,30 @@ static func _get_end_index(editor:CodeEdit, start:int) -> int:
 		index += 1
 	return end
 
-#FIXME doesn't include comments above the tagged lines
+
 ##1 extract todos and return everything in a giant block
 static func extract_todos(editor:CodeEdit) -> Array[Array]:
+	var blocks:Array[Array] = []
 	var one_block:Array[Line] = []
-	var index:= 0
+	var line_index:= 0
 	var string:String
 	const tags:Array[String] = ["TODO", "BUG", "TASK", "TBD", "FIXME", "FEATURE"]
 	var line_count = editor.get_line_count()
-	while index < line_count:
-		string = editor.get_line(index)
-		if editor.is_in_comment(index)>=0 and _contains_tag(string, tags):
-			one_block.append(Line.new(string, index))
-			for i in range(index+1, line_count):
+	while line_index < line_count:
+		string = editor.get_line(line_index)
+		if editor.is_in_comment(line_index)>=0 and _contains_tag(string, tags):
+			one_block = []
+			one_block.append(Line.new(string, line_index))
+			for i in range(line_index+1, line_count):
 				string = editor.get_line(i)
 				if editor.is_in_comment(i)>=0 and _contains_tag(string, tags):
 					one_block.append(Line.new(string, i))
 				else: break
-			index = one_block[-1].line_number + 1
+			line_index = one_block[-1].line_number + 1
+			blocks.append(one_block)
 		else:
-			index += 1
-	
-	return [[Line.new("#TODO_VIWERE HACK THIS FEATURE IS INCOMPLETE", 0)] as Array[Line], one_block]
+			line_index += 1
+	return blocks
 
 
 ## examine whether the string contains one of the given tags
