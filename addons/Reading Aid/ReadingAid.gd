@@ -526,7 +526,7 @@ func display_comment_buttons():
 
 		top_left += Vector2(siz * 2, 0)
 		
-		# abort cuz it's outside viewport
+		# abort if it's outside viewport
 		if top_left.x < face_editor.get_total_gutter_width(): continue
 		
 		#9# configure
