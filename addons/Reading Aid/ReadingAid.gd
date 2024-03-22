@@ -565,7 +565,7 @@ func _hide_comment_buttons():
 
 #TODO setting to configure buttons
 #TODO improve region and func animation
-#TODO if cursor already there in the same screen, disable back
+#TODO continue re-org-ing code
 
 #BUG holding ctrl while resizing the window permanently leaves tags on.
 #BUG switching NEW script auto bring up bot menu array
