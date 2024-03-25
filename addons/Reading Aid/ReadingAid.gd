@@ -1,3 +1,10 @@
+"""
+This class should set up a bunch of parameters to store the editor's states.
+
+Those parameters can then be altered by other classes or methods for the purpose of
+manipulating the Editor's looks.
+"""
+
 @tool
 extends EditorPlugin
 class_name ReadingAid
@@ -464,7 +471,6 @@ var _cooldown:float = 0.0
 
 
 
-
 ## to record the previous line indices on screen
 ## this is useful when mouse is outside Editor area,
 ## causing _estimate_min_max_line_num_onscreen()
@@ -485,7 +491,6 @@ func _get_onscreen_line_index_range_and_stretch() -> Array[int]:
 	min_line_index = max(0, min_line_index - stretch)
 	max_line_index = min(face_editor.get_line_count()-1, max_line_index + stretch / 2)
 	return [min_line_index, max_line_index]
-
 
 
 
@@ -556,7 +561,6 @@ func _hide_comment_buttons():
 
 
 
-
 #FEATURE display current function at the top
 #FEATURE bookmarks
 #FEATURE search for func uses
@@ -567,7 +571,8 @@ func _hide_comment_buttons():
 #TODO improve region and func animation
 #TODO continue re-org-ing code
 
-#BUG holding ctrl while resizing the window permanently leaves tags on.
+#BUG holding ctrl while resizing the window permanently leaves tags on
 #BUG switching NEW script auto bring up bot menu array
 #BUG func and region buttons animation sometimes get stuck for no reason
 #BUG CTRL too short / light can leave menu array residue
+#BUG comment button shows up and get stuck on expanding functions, until CTRL is pressed again
