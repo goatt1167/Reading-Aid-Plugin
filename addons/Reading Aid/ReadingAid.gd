@@ -3,6 +3,7 @@ This class should set up a bunch of parameters to store the editor's states.
 
 Those parameters can then be altered by other classes or methods for the purpose of
 manipulating the Editor's looks.
+
 """
 
 @tool
