@@ -20,7 +20,8 @@ func _on_pressed():
 	ReadingAid.face_editor.grab_focus()
 	# update comment buttons because they were folded or unfolded
 	get_tree().create_timer(0.01).timeout.connect(func(): #HACK display delay
-		ReadingAid.global.display_comment_buttons())
+		if ReadingAid.global._is_displaying_comment_buttons:
+			ReadingAid.global.display_comment_buttons())
 
 
 

@@ -1,3 +1,4 @@
-res://addons/Reading Aid/scenes/BottomButtonArray.tscn
+res://addons/Reading Aid/scenes/TopMenuButtonArray.tscn
 res://addons/Reading Aid/Theme.tres
+res://addons/Reading Aid/scripts/func_button.gd
 res://addons/Reading Aid/ReadingAid.gd
